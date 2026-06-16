@@ -3,11 +3,9 @@
 # 用法: ./build-android.sh
 set -euo pipefail
 
-# 环境
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export ANDROID_HOME=/opt/android-sdk
-export ANDROID_SDK_ROOT=$ANDROID_HOME
-export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
+# 加载环境配置（含缓存重定向）
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/env-android.sh"
 
 echo "=== 1. 构建前端 ==="
 cd /mnt/data/dwx-server/frontend
