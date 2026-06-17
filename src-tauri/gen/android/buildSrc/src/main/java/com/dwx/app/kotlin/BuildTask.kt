@@ -18,33 +18,40 @@ open class BuildTask : DefaultTask() {
 
     @TaskAction
     fun assemble() {
-        val executable = "npx"
-        try {
-            runTauriCli(executable)
-        } catch (e: Exception) {
-            throw e
-        }
-    }
-
-    fun runTauriCli(executable: String) {
-        val rootDirRel = rootDirRel ?: throw GradleException("rootDirRel cannot be null")
         val target = target ?: throw GradleException("target cannot be null")
         val release = release ?: throw GradleException("release cannot be null")
-        val args = mutableListOf("@tauri-apps/cli", "android", "android-studio-script")
 
-        project.exec {
-            workingDir(File(project.projectDir, rootDirRel))
-            executable(executable)
-            args(args)
-            if (project.logger.isEnabled(LogLevel.DEBUG)) {
-                args("-vv")
-            } else if (project.logger.isEnabled(LogLevel.INFO)) {
-                args("-v")
-            }
-            if (release) {
-                args("--release")
-            }
-            args(listOf("--target", target))
-        }.assertNormalExitValue()
+        val skipBuild = System.getenv("TAURI_SKIP_RUST_BUILD")
+        if (skipBuild != null && skipBuild.equals("true", ignoreCase = true)) {
+            project.logger.lifecycle("Skipping rust build for target $target (release=$release) - .so files already copied manually")
+            return
+        }
+
+        val rootDir = File(project.projectDir, rootDirRel ?: ".").absoluteFile
+        val releaseFlag = if (release) "--release" else ""
+
+        val command: List<String> = if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            listOf("powershell", "-Command", "cd ${rootDir.absolutePath}; cargo build --target $target $releaseFlag")
+        } else {
+            listOf("bash", "-c", "cd ${rootDir.absolutePath} && cargo build --target $target $releaseFlag")
+        }
+
+        project.logger.lifecycle("Building rust for target $target (release=$release) with command: ${command.joinToString(" ")}")
+
+        val processBuilder = ProcessBuilder(command)
+            .directory(rootDir)
+            .redirectErrorStream(true)
+
+        val process = processBuilder.start()
+        val output = process.inputStream.bufferedReader().readText()
+        val exitCode = process.waitFor()
+
+        if (exitCode != 0) {
+            project.logger.error("Rust build failed with exit code $exitCode")
+            project.logger.error(output)
+            throw GradleException("Failed to build rust for target $target")
+        }
+
+        project.logger.lifecycle("Rust build completed for target $target")
     }
 }

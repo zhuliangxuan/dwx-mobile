@@ -1,0 +1,96 @@
+$ tauri "android" "build" "--target" "aarch64" "--debug"
+        Info Using installed NDK: C:\Users\24781\AppData\Local\Android\Sdk\ndk\27.2.12479018
+        Info Looking up installed tauri packages to check mismatched versions...
+        Warn The bundle identifier "com.dwx.app" set in `"tauri.conf.json" identifier` ends with `.app`. This is not recommended because it conflicts with the application bundle extension on macOS.
+     Running beforeBuildCommand `cd /d D:\workspace\user\dwx-space\dwx\frontend && pnpm build`
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+$ vite build
+[36mvite v6.4.3 [32mbuilding for production...[36m[39m
+transforming...
+[32m鉁?[39m 680 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../static/[22m[32mindex.html                                      [39m[1m[2m  0.57 kB[22m[1m[22m[2m 鈹?gzip:   0.42 kB[22m
+[2m../static/[22m[35massets/index-OTW4vHzr.css                       [39m[1m[2m 75.52 kB[22m[1m[22m[2m 鈹?gzip:  12.32 kB[22m
+[2m../static/[22m[36massets/ImagePreloaderInstance-DhF0fZLg.js       [39m[1m[2m  0.54 kB[22m[1m[22m[2m 鈹?gzip:   0.33 kB[22m
+[2m../static/[22m[36massets/OverlapPluginInstance-BLCf5a36.js        [39m[1m[2m  0.86 kB[22m[1m[22m[2m 鈹?gzip:   0.50 kB[22m
+[2m../static/[22m[36massets/BlendPluginInstance-C59ok6lO.js          [39m[1m[2m  1.03 kB[22m[1m[22m[2m 鈹?gzip:   0.49 kB[22m
+[2m../static/[22m[36massets/LinkInstance-MicCjYdu.js                 [39m[1m[2m  3.58 kB[22m[1m[22m[2m 鈹?gzip:   1.61 kB[22m
+[2m../static/[22m[36massets/MovePluginInstance-BhQaRPK1.js           [39m[1m[2m  4.68 kB[22m[1m[22m[2m 鈹?gzip:   2.01 kB[22m
+[2m../static/[22m[36massets/InteractivityPluginInstance-DkaNBx9v.js  [39m[1m[2m  9.47 kB[22m[1m[22m[2m 鈹?gzip:   3.12 kB[22m
+[2m../static/[22m[36massets/Container-RQCfqwp0.js                    [39m[1m[2m 50.73 kB[22m[1m[22m[2m 鈹?gzip:  15.05 kB[22m
+[2m../static/[22m[36massets/index-aQMXKSq2.js                        [39m[1m[33m566.55 kB[39m[22m[2m 鈹?gzip: 176.08 kB[22m
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[32m鉁?built in 3.97s[39m
+warning: unused config key `http.low-speed-time` in `C:\Users\24781\.cargo\config.toml`
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling serde_core v1.0.228
+   Compiling libc v0.2.186
+   Compiling serde v1.0.228
+   Compiling erased-serde v0.4.10
+   Compiling writeable v0.6.3
+   Compiling memchr v2.8.2
+   Compiling indexmap v2.14.0
+   Compiling strsim v0.11.1
+   Compiling itoa v1.0.18
+   Compiling ident_case v1.0.1
+   Compiling autocfg v1.5.1
+   Compiling thiserror v2.0.18
+error: failed to run custom build command for `proc-macro2 v1.0.106`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\proc-macro2-17142bc821e2b627\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+warning: build failed, waiting for other jobs to finish...
+error: failed to run custom build command for `serde_core v1.0.228`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\serde_core-8eb2f576119c7958\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+error: failed to run custom build command for `quote v1.0.45`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\quote-2d935b4302937a2e\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+error: failed to run custom build command for `serde_core v1.0.228`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\serde_core-ae15eaea3e742650\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+error: failed to run custom build command for `libc v0.2.186`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\libc-2c4e4435041c7e42\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+error: failed to run custom build command for `serde v1.0.228`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\serde-e142667c01602b53\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+error: failed to run custom build command for `serde v1.0.228`
+
+Caused by:
+  could not execute process `D:\workspace\user\dwx-space\dwx-mobile\src-tauri\target\debug\build\serde-2daa9a0dc922bbea\build-script-build` (never executed)
+
+Caused by:
+  搴旂敤绋嬪簭鎺у埗绛栫暐宸查樆姝㈡鏂囦欢銆?(os error 4551)
+failed to build Android app: `Failed to run `cargo build`: command ["cargo", "build", "--package", "app", "--manifest-path", "D:\\workspace\\user\\dwx-space\\dwx-mobile\\src-tauri\\Cargo.toml", "--target", "aarch64-linux-android", "--features", "tauri/custom-protocol tauri/custom-protocol", "--lib"] exited with code 101
+       Error failed to build Android app: `Failed to run `cargo build`: command ["cargo", "build", "--package", "app", "--manifest-path", "D:\\workspace\\user\\dwx-space\\dwx-mobile\\src-tauri\\Cargo.toml", "--target", "aarch64-linux-android", "--features", "tauri/custom-protocol tauri/custom-protocol", "--lib"] exited with code 101
+[ELIFECYCLE] Command failed with exit code 1.

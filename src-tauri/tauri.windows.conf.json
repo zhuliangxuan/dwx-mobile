@@ -1,0 +1,7 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "build": {
+    "frontendDist": "../../dwx/static",
+    "beforeBuildCommand": "cd /d D:\\workspace\\user\\dwx-space\\dwx\\frontend && pnpm build"
+  }
+}
