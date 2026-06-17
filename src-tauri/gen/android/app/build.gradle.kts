@@ -29,6 +29,16 @@ android {
         versionCode = tauriProperties.getProperty("tauri.android.versionCode", "1").toInt()
         versionName = tauriProperties.getProperty("tauri.android.versionName", "1.0")
     }
+
+    // 打包时只保留 arm64-v8a，去掉其他架构
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+            exclude("lib/armeabi-v7a/**")
+            exclude("lib/x86/**")
+            exclude("lib/x86_64/**")
+        }
+    }
     signingConfigs {
         if (keystorePath.isNotEmpty()) {
             create("release") {

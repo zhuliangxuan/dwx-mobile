@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "大武侠",
+  "productName": "凡尘问道",
   "version": "0.1.0",
   "identifier": "com.dwx.app",
   "build": {
@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "大武侠·凡尘问道录",
+        "title": "凡尘问道",
         "width": 800,
         "height": 600,
         "resizable": true,
